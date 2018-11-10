@@ -15,7 +15,6 @@ body {
   background-color: #fdfdfd;
   margin: 0;
   position: relative;
-  /* overflow-x: hidden; */
 }
 
 ul,
@@ -192,18 +191,17 @@ nav h1 a {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial, sans-serif;
-  margin: 15px;
-  /* min-height: 380px; */
-  padding: 0 30px 25px;
+  margin: 10px;
+  padding: 25px;
+  box-sizing: border-box;
   text-align: left;
-  flex-basis: 45%;
+  flex-basis: 30%;
 }
 
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
   margin: 0;
-  /* min-height: 248px; */
   width: 100%;
 }
 
@@ -248,9 +246,6 @@ nav h1 a {
   display: flex;
 }
 
-/* #restaurant-details>* {
-  flex-basis: 50%;
-} */
 
 
 .inside header {
@@ -264,9 +259,6 @@ nav h1 a {
   background: blue none repeat scroll 0 0;
   height: 400px;
   margin-top: 130px;
-  /* position: fixed; */
-  /* right: 0; */
-  /* top: 80px; */
   flex-basis: 100%;
   z-index: 1;
 }
@@ -377,12 +369,18 @@ nav h1 a {
   border-radius: 2px;
 }
 
+#restaurant-hours {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 #restaurant-hours td {
   color: #666;
   border: 1px solid #666;
   box-sizing: border-box;
   padding: 10px;
   text-align: center;
+  margin: 0;
 }
 
 #restaurant-hours tr>td:first-of-type {
@@ -390,7 +388,72 @@ nav h1 a {
   text-align: left;
 }
 
-#restaurant-hours {  
-    border-collapse: collapse;
-    width: 100%;
+#restaurant-hours tr>td:first-of-type {
+  width: 40%;
+}
+
+/* ====================== Media Queries ====================== */
+
+
+@media screen and (max-width: 768px) {
+
+  #restaurants-list li {
+    flex-basis: 40%;
+  }
+
+  #restaurant-details {
+    flex-wrap: wrap;
+  }
+
+  #reviews-container,
+  #restaurant-container {
+    flex-basis: 100%;
+  }
+
+}
+
+@media screen and (max-width: 520px) {
+
+  #restaurants-list li {
+    flex-basis: 100%;
+  }
+
+  nav h1 {
+    display: flex;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  .filter-options {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .filter-options h2 {
+    width: 20%;
+    margin: 0;
+  }
+
+  .filter-options select {
+    width: 35%;
+    margin: 0;
+  }
+
+}
+
+@media screen and (max-width:400px) {
+  #reviews-list li {
+    padding: 20px;
+  }
+
+  #reviews-list li p:last-of-type {
+    font-size: 12px;
+  }
+
+
+  #restaurant-hours td {
+    padding: 5px;
+  }
 }
