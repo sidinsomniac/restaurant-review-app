@@ -20,18 +20,28 @@
   </header>
 
   <main id="maincontent">
-    <section id="map-container">
-      <div id="map"></div>
+
+    <section id="map-container" aria-label="Restaurant Location Map" role="application">
+      <div id="map" aria-describedby="map-restaurant-location"></div>
+      <div id="map-restaurant-location" hidden>Map showing restaurant locations</div>
     </section>
+
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+
+        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-label="Select Neighborhood"
+          aria-describedby="neighborhood-selection">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+        <div id="neighborhood-selection" hidden>Filter restaurants based on neighborhood</div>
+
+        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-label="Select Cuisine"
+          aria-describedby="cuisine-selection">
           <option value="all">All Cuisines</option>
         </select>
+        <div id="cuisine-selection" hidden>Filter restaurants based on cuisine</div>
+
       </div>
       <ul id="restaurants-list"></ul>
     </section>
