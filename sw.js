@@ -1,4 +1,4 @@
-const staticCacheName = 'restaurant-review-v1';
+let staticCacheName = 'restaurant-review-v1';
 
 // On installation of the service worker
 self.addEventListener('install', function (event) {
@@ -37,7 +37,7 @@ self.addEventListener('activate', function (event) {
 		caches.keys().then(function (cacheNames) {
 			return Promise.all(
 				cacheNames.filter(function (cacheName) {
-					return cacheName.startsWith('retaurant-review-') && cacheName !== staticCacheName;
+					return cacheName.startsWith('restaurant-review-') && cacheName !== staticCacheName;
 				}).map(function (cacheName) {
 					return caches.delete(cacheName);
 				})
