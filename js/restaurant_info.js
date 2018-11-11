@@ -65,6 +65,7 @@ fetchRestaurantFromURL = (callback) => {
  * Create restaurant HTML and add it to the webpage
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
+	let locationName;
 	const name = document.getElementById('restaurant-name');
 	name.innerHTML = restaurant.name;
 	name.tabIndex = 0;
@@ -73,10 +74,18 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 	address.innerHTML = restaurant.address;
 	address.tabIndex = 0;
 
+	if (restaurant.address.includes('Brooklyn')) {
+		locationName = 'Brooklyn';
+	} else if (restaurant.address.includes('Manhattan')) {
+		locationName = 'Manhattan';
+	} else if (restaurant.address.includes('Queens')) {
+		locationName = 'Queens';
+	}
+
 	const image = document.getElementById('restaurant-img');
 	image.className = 'restaurant-img';
 	image.src = DBHelper.imageUrlForRestaurant(restaurant);
-	image.alt = `Image of ${restaurant.name}`;
+	image.alt = `${restaurant.name} restaurant in ${locationName}`;
 	image.tabIndex = 0;
 
 	const cuisine = document.getElementById('restaurant-cuisine');
